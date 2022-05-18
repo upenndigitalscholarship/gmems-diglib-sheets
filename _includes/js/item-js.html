@@ -83,9 +83,15 @@ function displayItem(record, prev_id, next_id) {
     }
     {%- else -%}
     if (record[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
-    {% endif %}{% endfor %}
+    {% endif %}
+    if()
+    
+    {% endfor %}
     fields += '</dl>';
     document.getElementById("item-metadata").innerHTML = fields;
+
+    document.getElementById("original-text").innerHTML = record.orig_text;
+    document.getElementById("translated-text").innerHTML = record.trans_text;
 
     {% if site.data.theme.browse-buttons == true %}
     if (prev_id) {
