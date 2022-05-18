@@ -84,7 +84,6 @@ function displayItem(record, prev_id, next_id) {
     {%- else -%}
     if (record[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
     {% endif %}
-    if()
     
     {% endfor %}
     fields += '</dl>';
