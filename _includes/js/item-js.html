@@ -94,6 +94,28 @@ function displayItem(record, prev_id, next_id) {
     document.getElementById("original-text").innerHTML = record.orig_text;
     document.getElementById("translated-text").innerHTML = record.trans_text;
 
+/* listen for textbox class and apply css formatting to original + translated text divs */
+
+window.addEventListener("load", function () {
+    var codes = document.getElementsByClassName("textbox");
+    for (var i = 0; i < codes.length; i++) {
+        lineToSpan(codes[i]);
+    }
+  }, false);
+  function lineToSpan (code) {
+    var lines = code.innerHTML.split("\n");
+    while(code.childNodes.length > 0) {
+        code.removeChild(code.childNodes[0]);
+    }
+    for(var i = 0; i < lines.length; i++) {
+        var span = document.createElement("span");
+        span.className = "line";
+        span.innerHTML = lines[i];
+        code.appendChild(span);
+        code.appendChild(document.createTextNode("\n"));
+    }
+  };
+
     {% if site.data.theme.browse-buttons == true %}
     if (prev_id) {
         /* add prev/next nav */
