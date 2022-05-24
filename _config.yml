@@ -20,14 +20,15 @@ source-code: https://github.com/CollectionBuilder/collectionbuilder-sheets
 # SITE SETTINGS
 #
 # title of site appears in banner
-title: CollectionBuilder-Sheets
+title: Global Medieval and Early Modern Digital Library
 # tagline, a short phrase that will appear throughout the site in the top banner
-tagline: a template for creating simple digital exhibits
+tagline: Medieval and Early Modern texts from around the globe translated into English.
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
-description: "CollectionBuilder-Sheets is an experimental template that directly parses CSVs to create small digital collection exhibits on GitHub Pages designed for teaching digital library skills. Work in Progress!"
+description: "The Global Medieval and Early Modern Digital Library brings together translations, often accompanied by transcriptions, of primary sources encompassing a wide range of genres, regions and languages from the period between Late Antiquity and 1700. The site allows these sources to be organized by theme, region, language and date."
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
-author: CollectionBuilder
+author: upenndigitalscholarship
+
 
 ##########
 # COLLECTION SETTINGS
@@ -43,10 +44,10 @@ metadata-csv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBf-Kju6JGQkO1ib
 # Site/Organization Branding 
 #   Uncomment these and enter information for your organization (replacing the CDIL links and name below) if you'd like to brand your site with a logo
 #
-organization-name: "Blah blah blah"
-organization-link: https://cdil.lib.uidaho.edu/
-organization-logo-banner: https://cdil.lib.uidaho.edu/storying-extinction/assets/img/cdil.png
-organization-logo-nav: https://cdil.lib.uidaho.edu/assets/img/logo.png
+organization-name: "Center for Research Data and Digital Scholarship, Penn Libraries"
+organization-link: https://www.library.upenn.edu/help-with/research-data-digital-scholarship
+organization-logo-banner: '/assets/img/PennLibrariesLogo2020_BlackRGB.png'
+organization-logo-nav: '/assets/img/PennLibrariesLogo2020_BlackRGB.png'
 
 
 ##########
