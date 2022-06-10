@@ -21,7 +21,34 @@
 
 pre {
 	background-color:#e9ecef;
-	padding:1rem; /* constant value rather than % of text block */
+	/*padding:1.5rem; constant value rather than % of text block */
 	overflow-wrap: normal;
 
+}
+
+/* Formatting and style for text transcription/translation textboxes with incremental numbering */
+.textbox {
+	white-space: pre; /* Don't wrap long lines */
+	word-break: break-all;
+	counter-reset: linecounter; /* Create line counter variable */
+	overflow: auto;
+	border-width: 0px;
+	border-style: solid;
+	border-color: #ccc;
+	padding: 1rem;
+	font-family: "Courier New",Courier,monospace;
+	background-color: #e9ecef;
+}
+.textbox span.line {
+  counter-increment: linecounter;
+}
+.textbox span.line::before {
+  content: counter(linecounter);
+  width: 20px;
+  text-align: right;
+  display: inline-block;
+  padding-right: 1.5rem;
+  border-right: 1px solid #ccc;
+  margin-right: 1.5rem;
+  background-color: #e9ecef;
 }
