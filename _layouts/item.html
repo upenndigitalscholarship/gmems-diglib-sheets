@@ -18,6 +18,20 @@ gallery: true
         <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
     </div>
 
+    {% comment %} The next line displays the original title (if available), then the translated title.{%- endcomment -%}
+    <h2> {% if record.title_orig %}{{ record.title_orig }} | {% endif %}{{ record.title }} </h2>
+    
+    <div class="line-translation_nos">
+        <div class="left">
+            <h4> Transcription </h4>
+            <pre class="textbox" id="original-text">{{ page.orig_text }}</pre>
+        </div>
+        <div class="right">
+            <h4> Translation </h4>
+            <pre class="textbox" id="translated-text">{{ page.trans_text }}</pre>
+        </div>
+    </div>
+
     <div class="row mt-3">
 
         <div class="col-md-6" >
@@ -30,20 +44,6 @@ gallery: true
             <div id="item-metadata" class="metadata">
             </div>
         </div> 
-    </div>
-
-    {% comment %} The next line displays the original title (if available), then the translated title.{%- endcomment -%}
-    <h2> {% if page.title_orig %}{{ page.title_orig }} | {% endif %}{{ page.title }} </h2>
-    
-    <div class="line-translation_nos">
-        <div class="left">
-            <h4> Transcription </h4>
-            <pre class="textbox" id="original-text">{{ page.orig_text }}</pre>
-        </div>
-        <div class="right">
-            <h4> Translation </h4>
-            <pre class="textbox" id="translated-text">{{ page.trans_text }}</pre>
-        </div>
     </div>
 
     {%- if site.data.theme.browse-buttons == true -%}

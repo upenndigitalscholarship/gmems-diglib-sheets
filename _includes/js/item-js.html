@@ -76,7 +76,7 @@ function displayItem(record, prev_id, next_id) {
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
             if (topics[i] != "") {
-                browseLinks += '<a class="btn btn-link" href="{{ '/browse.html' | relative_url }}#' + encodeURIComponent(topics[i].trim()) + '">' + topics[i].trim() + '</a> ';
+                browseLinks += '<a class="btn btn-primary" href="{{ '/browse.html' | relative_url }}#' + encodeURIComponent(topics[i].trim()) + '">' + topics[i].trim() + '</a> ';
             }
         }
         fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">' + browseLinks + '</dd>';
@@ -89,7 +89,7 @@ function displayItem(record, prev_id, next_id) {
     fields += '</dl>';
     document.getElementById("item-metadata").innerHTML = fields;
 
-/* add the original + translated text from the data to the correct divs */
+    /* add the original + translated text from the data to the correct divs */
 
     document.getElementById("original-text").innerHTML = record.orig_text;
     document.getElementById("translated-text").innerHTML = record.trans_text;
