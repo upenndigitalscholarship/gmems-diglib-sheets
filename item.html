@@ -45,7 +45,7 @@
 
 
 
-<!-- Last build date: 2022-06-21 -->
+<!-- Last build date: 2022-06-27 -->
   </head>
   <body class="d-flex flex-column h-100">
     <div id="skip-to-content"><a href="#maincontent">Skip to main content</a></div>
@@ -271,6 +271,14 @@ function displayItem(record, prev_id, next_id) {
             var objectSrc = "/gmems-diglib-sheets/objects/" + record.filename; 
         }
     }
+    //check for pdf url
+    if(record.pdf_url) { 
+        if (record.pdf_url.includes("/")) { 
+            var objectSrc = record.pdf_url; 
+        } else { 
+            var objectSrc = "/gmems-diglib-sheets/objects/" + record.filename; 
+        }
+    }
     var itemImage, itemLink;
 
     if (format.includes('image')) {
@@ -319,22 +327,34 @@ function displayItem(record, prev_id, next_id) {
     
     /* add item metadata */
     var fields = '<dl>';
-    if (record["title_orig"]) { fields += '<dt class="field">Title:</dt> <dd class="field-value">' + record["title_orig"] + '</dd>'; }
+    if (record["title_orig"]) {
+        console.log("title_orig");
+         fields += '<dt class="field">Title:</dt> <dd class="field-value">' + record["title_orig"] + '</dd>'; }
     
     
-    if (record["title"]) { fields += '<dt class="field">Title (Translated):</dt> <dd class="field-value">' + record["title"] + '</dd>'; }
+    if (record["title"]) {
+        console.log("title");
+         fields += '<dt class="field">Title (Translated):</dt> <dd class="field-value">' + record["title"] + '</dd>'; }
     
     
-    if (record["introduction"]) { fields += '<dt class="field">Introduction:</dt> <dd class="field-value">' + record["introduction"] + '</dd>'; }
+    if (record["introduction"]) {
+        console.log("introduction");
+         fields += '<dt class="field">Introduction:</dt> <dd class="field-value">' + record["introduction"] + '</dd>'; }
     
     
-    if (record["description"]) { fields += '<dt class="field">Description:</dt> <dd class="field-value">' + record["description"] + '</dd>'; }
+    if (record["description"]) {
+        console.log("description");
+         fields += '<dt class="field">Description:</dt> <dd class="field-value">' + record["description"] + '</dd>'; }
     
     
-    if (record["creator"]) { fields += '<dt class="field">Author:</dt> <dd class="field-value">' + record["creator"] + '</dd>'; }
+    if (record["creator"]) {
+        console.log("creator");
+         fields += '<dt class="field">Author:</dt> <dd class="field-value">' + record["creator"] + '</dd>'; }
     
     
-    if (record["translator"]) { fields += '<dt class="field">Translator:</dt> <dd class="field-value">' + record["translator"] + '</dd>'; }
+    if (record["translator"]) {
+        console.log("translator");
+         fields += '<dt class="field">Translator:</dt> <dd class="field-value">' + record["translator"] + '</dd>'; }
     
     
     
@@ -373,7 +393,9 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">Time Period:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     
-    if (record["date"]) { fields += '<dt class="field">Date Created:</dt> <dd class="field-value">' + record["date"] + '</dd>'; }
+    if (record["date"]) {
+        console.log("date");
+         fields += '<dt class="field">Date Created:</dt> <dd class="field-value">' + record["date"] + '</dd>'; }
     
     
     
@@ -400,31 +422,49 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">Subjects:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     
-    if (record["location"]) { fields += '<dt class="field">Location:</dt> <dd class="field-value">' + record["location"] + '</dd>'; }
+    if (record["location"]) {
+        console.log("location");
+         fields += '<dt class="field">Location:</dt> <dd class="field-value">' + record["location"] + '</dd>'; }
     
     
-    if (record["latitude"]) { fields += '<dt class="field">Latitude:</dt> <dd class="field-value">' + record["latitude"] + '</dd>'; }
+    if (record["latitude"]) {
+        console.log("latitude");
+         fields += '<dt class="field">Latitude:</dt> <dd class="field-value">' + record["latitude"] + '</dd>'; }
     
     
-    if (record["longitude"]) { fields += '<dt class="field">Longitude:</dt> <dd class="field-value">' + record["longitude"] + '</dd>'; }
+    if (record["longitude"]) {
+        console.log("longitude");
+         fields += '<dt class="field">Longitude:</dt> <dd class="field-value">' + record["longitude"] + '</dd>'; }
     
     
-    if (record["identifier"]) { fields += '<dt class="field">Source Identifier:</dt> <dd class="field-value">' + record["identifier"] + '</dd>'; }
+    if (record["identifier"]) {
+        console.log("identifier");
+         fields += '<dt class="field">Source Identifier:</dt> <dd class="field-value">' + record["identifier"] + '</dd>'; }
     
     
-    if (record["type"]) { fields += '<dt class="field">Type:</dt> <dd class="field-value">' + record["type"] + '</dd>'; }
+    if (record["type"]) {
+        console.log("type");
+         fields += '<dt class="field">Type:</dt> <dd class="field-value">' + record["type"] + '</dd>'; }
     
     
-    if (record["format"]) { fields += '<dt class="field">Format:</dt> <dd class="field-value">' + record["format"] + '</dd>'; }
+    if (record["format"]) {
+        console.log("format");
+         fields += '<dt class="field">Format:</dt> <dd class="field-value">' + record["format"] + '</dd>'; }
     
     
-    if (record["rightsstatement"]) { fields += '<dt class="field">:</dt> <dd class="field-value">' + record["rightsstatement"] + '</dd>'; }
+    if (record["rightsstatement"]) {
+        console.log("rightsstatement");
+         fields += '<dt class="field">:</dt> <dd class="field-value">' + record["rightsstatement"] + '</dd>'; }
     
     
-    if (record["source"]) { fields += '<dt class="field">Source:</dt> <dd class="field-value">' + record["source"] + '</dd>'; }
+    if (record["source"]) {
+        console.log("source");
+         fields += '<dt class="field">Source:</dt> <dd class="field-value">' + record["source"] + '</dd>'; }
     
     
-    if (record["endnotes"]) { fields += '<dt class="field">References:</dt> <dd class="field-value">' + record["endnotes"] + '</dd>'; }
+    if (record["endnotes"]) {
+        console.log("endnotes");
+         fields += '<dt class="field">References:</dt> <dd class="field-value">' + record["endnotes"] + '</dd>'; }
     
     
     
