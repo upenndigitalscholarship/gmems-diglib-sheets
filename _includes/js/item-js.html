@@ -17,6 +17,14 @@ function displayItem(record, prev_id, next_id) {
             var objectSrc = "{{ '/objects/' | relative_url }}" + record.filename; 
         }
     }
+    //check for pdf url
+    if(record.pdf_url) { 
+        if (record.pdf_url.includes("/")) { 
+            var objectSrc = record.pdf_url; 
+        } else { 
+            var objectSrc = "{{ '/objects/' | relative_url }}" + record.filename; 
+        }
+    }
     var itemImage, itemLink;
 
     if (format.includes('image')) {
@@ -82,7 +90,9 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     {%- else -%}
-    if (record[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
+    if (record[{{ f.field | jsonify }}]) {
+        console.log({{ f.field | jsonify }});
+         fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
     {% endif %}
     
     {% endfor %}
