@@ -45,7 +45,7 @@
 
 
 
-<!-- Last build date: 2022-06-27 -->
+<!-- Last build date: 2022-07-27 -->
   </head>
   <body class="d-flex flex-column h-100">
     <div id="skip-to-content"><a href="#maincontent">Skip to main content</a></div>
@@ -327,38 +327,87 @@ function displayItem(record, prev_id, next_id) {
     
     /* add item metadata */
     var fields = '<dl>';
-    if (record["title_orig"]) {
+    if ("title_orig"=="introduction") {
+            console.log("title_orig");
+            fields += '<dt class="field">Title:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["title_orig"] + '</pre></dd>'; }
+        
+
+        else if ("title_orig"=="source") {
+            console.log("title_orig");
+            fields += '<dt class="field">Title:</dt> <dd class="field-value"><a href="' + record["title_orig"] + '">'+record["title_orig"]+'</a></dd>'; }
+    else if (record["title_orig"]) {
         console.log("title_orig");
          fields += '<dt class="field">Title:</dt> <dd class="field-value">' + record["title_orig"] + '</dd>'; }
     
     
-    if (record["title"]) {
+    if ("title"=="introduction") {
+            console.log("title");
+            fields += '<dt class="field">Title (Translated):</dt> <dd class="field-value"><pre class="introduction-text">'+ record["title"] + '</pre></dd>'; }
+        
+
+        else if ("title"=="source") {
+            console.log("title");
+            fields += '<dt class="field">Title (Translated):</dt> <dd class="field-value"><a href="' + record["title"] + '">'+record["title"]+'</a></dd>'; }
+    else if (record["title"]) {
         console.log("title");
          fields += '<dt class="field">Title (Translated):</dt> <dd class="field-value">' + record["title"] + '</dd>'; }
     
     
-    if (record["introduction"]) {
+    if ("introduction"=="introduction") {
+            console.log("introduction");
+            fields += '<dt class="field">Introduction:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["introduction"] + '</pre></dd>'; }
+        
+
+        else if ("introduction"=="source") {
+            console.log("introduction");
+            fields += '<dt class="field">Introduction:</dt> <dd class="field-value"><a href="' + record["introduction"] + '">'+record["introduction"]+'</a></dd>'; }
+    else if (record["introduction"]) {
         console.log("introduction");
          fields += '<dt class="field">Introduction:</dt> <dd class="field-value">' + record["introduction"] + '</dd>'; }
     
     
-    if (record["description"]) {
+    if ("description"=="introduction") {
+            console.log("description");
+            fields += '<dt class="field">Description:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["description"] + '</pre></dd>'; }
+        
+
+        else if ("description"=="source") {
+            console.log("description");
+            fields += '<dt class="field">Description:</dt> <dd class="field-value"><a href="' + record["description"] + '">'+record["description"]+'</a></dd>'; }
+    else if (record["description"]) {
         console.log("description");
          fields += '<dt class="field">Description:</dt> <dd class="field-value">' + record["description"] + '</dd>'; }
     
     
-    if (record["creator"]) {
+    if ("creator"=="introduction") {
+            console.log("creator");
+            fields += '<dt class="field">Author:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["creator"] + '</pre></dd>'; }
+        
+
+        else if ("creator"=="source") {
+            console.log("creator");
+            fields += '<dt class="field">Author:</dt> <dd class="field-value"><a href="' + record["creator"] + '">'+record["creator"]+'</a></dd>'; }
+    else if (record["creator"]) {
         console.log("creator");
          fields += '<dt class="field">Author:</dt> <dd class="field-value">' + record["creator"] + '</dd>'; }
     
     
-    if (record["translator"]) {
+    if ("translator"=="introduction") {
+            console.log("translator");
+            fields += '<dt class="field">Translator:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["translator"] + '</pre></dd>'; }
+        
+
+        else if ("translator"=="source") {
+            console.log("translator");
+            fields += '<dt class="field">Translator:</dt> <dd class="field-value"><a href="' + record["translator"] + '">'+record["translator"]+'</a></dd>'; }
+    else if (record["translator"]) {
         console.log("translator");
          fields += '<dt class="field">Translator:</dt> <dd class="field-value">' + record["translator"] + '</dd>'; }
     
     
     
     if (record["language"]) {
+     
         var topics = record["language"].split(';');
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
@@ -371,6 +420,7 @@ function displayItem(record, prev_id, next_id) {
     
     
     if (record["region"]) {
+     
         var topics = record["region"].split(';');
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
@@ -383,6 +433,7 @@ function displayItem(record, prev_id, next_id) {
     
     
     if (record["period"]) {
+     
         var topics = record["period"].split(';');
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
@@ -393,13 +444,22 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">Time Period:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     
-    if (record["date"]) {
+    if ("date"=="introduction") {
+            console.log("date");
+            fields += '<dt class="field">Date Created:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["date"] + '</pre></dd>'; }
+        
+
+        else if ("date"=="source") {
+            console.log("date");
+            fields += '<dt class="field">Date Created:</dt> <dd class="field-value"><a href="' + record["date"] + '">'+record["date"]+'</a></dd>'; }
+    else if (record["date"]) {
         console.log("date");
          fields += '<dt class="field">Date Created:</dt> <dd class="field-value">' + record["date"] + '</dd>'; }
     
     
     
     if (record["genre"]) {
+     
         var topics = record["genre"].split(';');
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
@@ -412,6 +472,7 @@ function displayItem(record, prev_id, next_id) {
     
     
     if (record["subject"]) {
+     
         var topics = record["subject"].split(';');
         var browseLinks = "";
         for (var i = 0, len = topics.length; i < len; i++) {
@@ -422,47 +483,119 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">Subjects:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     
-    if (record["location"]) {
+    if ("location"=="introduction") {
+            console.log("location");
+            fields += '<dt class="field">Location:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["location"] + '</pre></dd>'; }
+        
+
+        else if ("location"=="source") {
+            console.log("location");
+            fields += '<dt class="field">Location:</dt> <dd class="field-value"><a href="' + record["location"] + '">'+record["location"]+'</a></dd>'; }
+    else if (record["location"]) {
         console.log("location");
          fields += '<dt class="field">Location:</dt> <dd class="field-value">' + record["location"] + '</dd>'; }
     
     
-    if (record["latitude"]) {
+    if ("latitude"=="introduction") {
+            console.log("latitude");
+            fields += '<dt class="field">Latitude:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["latitude"] + '</pre></dd>'; }
+        
+
+        else if ("latitude"=="source") {
+            console.log("latitude");
+            fields += '<dt class="field">Latitude:</dt> <dd class="field-value"><a href="' + record["latitude"] + '">'+record["latitude"]+'</a></dd>'; }
+    else if (record["latitude"]) {
         console.log("latitude");
          fields += '<dt class="field">Latitude:</dt> <dd class="field-value">' + record["latitude"] + '</dd>'; }
     
     
-    if (record["longitude"]) {
+    if ("longitude"=="introduction") {
+            console.log("longitude");
+            fields += '<dt class="field">Longitude:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["longitude"] + '</pre></dd>'; }
+        
+
+        else if ("longitude"=="source") {
+            console.log("longitude");
+            fields += '<dt class="field">Longitude:</dt> <dd class="field-value"><a href="' + record["longitude"] + '">'+record["longitude"]+'</a></dd>'; }
+    else if (record["longitude"]) {
         console.log("longitude");
          fields += '<dt class="field">Longitude:</dt> <dd class="field-value">' + record["longitude"] + '</dd>'; }
     
     
-    if (record["identifier"]) {
+    if ("identifier"=="introduction") {
+            console.log("identifier");
+            fields += '<dt class="field">Source Identifier:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["identifier"] + '</pre></dd>'; }
+        
+
+        else if ("identifier"=="source") {
+            console.log("identifier");
+            fields += '<dt class="field">Source Identifier:</dt> <dd class="field-value"><a href="' + record["identifier"] + '">'+record["identifier"]+'</a></dd>'; }
+    else if (record["identifier"]) {
         console.log("identifier");
          fields += '<dt class="field">Source Identifier:</dt> <dd class="field-value">' + record["identifier"] + '</dd>'; }
     
     
-    if (record["type"]) {
+    if ("type"=="introduction") {
+            console.log("type");
+            fields += '<dt class="field">Type:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["type"] + '</pre></dd>'; }
+        
+
+        else if ("type"=="source") {
+            console.log("type");
+            fields += '<dt class="field">Type:</dt> <dd class="field-value"><a href="' + record["type"] + '">'+record["type"]+'</a></dd>'; }
+    else if (record["type"]) {
         console.log("type");
          fields += '<dt class="field">Type:</dt> <dd class="field-value">' + record["type"] + '</dd>'; }
     
     
-    if (record["format"]) {
+    if ("format"=="introduction") {
+            console.log("format");
+            fields += '<dt class="field">Format:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["format"] + '</pre></dd>'; }
+        
+
+        else if ("format"=="source") {
+            console.log("format");
+            fields += '<dt class="field">Format:</dt> <dd class="field-value"><a href="' + record["format"] + '">'+record["format"]+'</a></dd>'; }
+    else if (record["format"]) {
         console.log("format");
          fields += '<dt class="field">Format:</dt> <dd class="field-value">' + record["format"] + '</dd>'; }
     
     
-    if (record["rightsstatement"]) {
+    if ("rightsstatement"=="introduction") {
+            console.log("rightsstatement");
+            fields += '<dt class="field">:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["rightsstatement"] + '</pre></dd>'; }
+        
+
+        else if ("rightsstatement"=="source") {
+            console.log("rightsstatement");
+            fields += '<dt class="field">:</dt> <dd class="field-value"><a href="' + record["rightsstatement"] + '">'+record["rightsstatement"]+'</a></dd>'; }
+    else if (record["rightsstatement"]) {
         console.log("rightsstatement");
          fields += '<dt class="field">:</dt> <dd class="field-value">' + record["rightsstatement"] + '</dd>'; }
     
     
-    if (record["source"]) {
+    if ("source"=="introduction") {
+            console.log("source");
+            fields += '<dt class="field">Source:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["source"] + '</pre></dd>'; }
+        
+
+        else if ("source"=="source") {
+            console.log("source");
+            fields += '<dt class="field">Source:</dt> <dd class="field-value"><a href="' + record["source"] + '">'+record["source"]+'</a></dd>'; }
+    else if (record["source"]) {
         console.log("source");
          fields += '<dt class="field">Source:</dt> <dd class="field-value">' + record["source"] + '</dd>'; }
     
     
-    if (record["endnotes"]) {
+    if ("endnotes"=="introduction") {
+            console.log("endnotes");
+            fields += '<dt class="field">References:</dt> <dd class="field-value"><pre class="introduction-text">'+ record["endnotes"] + '</pre></dd>'; }
+        
+
+        else if ("endnotes"=="source") {
+            console.log("endnotes");
+            fields += '<dt class="field">References:</dt> <dd class="field-value"><a href="' + record["endnotes"] + '">'+record["endnotes"]+'</a></dd>'; }
+    else if (record["endnotes"]) {
         console.log("endnotes");
          fields += '<dt class="field">References:</dt> <dd class="field-value">' + record["endnotes"] + '</dd>'; }
     
